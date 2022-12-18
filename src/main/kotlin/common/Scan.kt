@@ -20,14 +20,11 @@ class PScan {
 
         override fun compute() {
             if (r - l < THRESHOLD) {
-//                var sum = 0
                 for (i in l..r) {
                     node.value += array[i]
                 }
-//                node.value = sum
             } else {
                 val m = (l + r) / 2
-                // Тут нужно создавать левую и правую ноду, но я это опустил
                 node.l = Tree(0, null, null)
                 node.r = Tree(0, null, null)
                 fork2join(
@@ -54,7 +51,6 @@ class PScan {
                 for (i in l + 1..r) {
                     result[i + 1] = array[i] + result[i]
                 }
-//                result[l] = prefix + array[l]
             } else {
                 val m = (l + r) / 2
                 fork2join(

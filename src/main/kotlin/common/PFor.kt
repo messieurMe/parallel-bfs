@@ -10,7 +10,6 @@ fun pfor(from: Int, to: Int, body: (Int) -> Unit) {
 
 class PFor(private val from: Int, private val to: Int, private val body: (Int) -> Unit) : RecursiveAction() {
     override fun compute() {
-//        println("FT: $from $to; m: ${(from + to) / 2}")
         if (to - from < THRESHOLD) {
             for (i in from until to) {
                 body(i)

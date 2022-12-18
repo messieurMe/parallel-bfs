@@ -6,82 +6,9 @@ import java.lang.Integer.min
 import java.util.LinkedList
 import kotlin.random.Random
 
-//-XX:ActiveProcessorCount=4
 fun main(args: Array<String>) {
     compare(5)
 }
-
-//    val x = AtomicIntegerArray(1_000_000)
-//    val scan = PScan()
-//    val rrr = scan.scan(x.toIntArray())
-//    println(rrr.toList())
-
-
-//    pfor(0, x.length()) { i ->
-//        x.getAndIncrement(i)
-//    }
-
-//    for(i in 0 until x.length()){
-//        if(x.get(i) != 1){
-//            println("HEHE")
-//        }
-//    }
-//    println("OK")
-
-//    val xx = IntArray(10_000) { it }
-//    val xx2 = IntArray(10_000) { 0 }
-//    pfor(0, 10_000) { i ->
-//        xx2[i] += 1
-//    }
-
-//    xx2.forEach {
-//        if(it != 1){
-//            println("AAAAAAAAAA: $it")
-//        }
-//    }
-
-fun draft() {
-    val x1 = 0
-    val x2 = 0
-    val x3 = 0
-    fun uId(a: Int, b: Int, c: Int) = a.or(b.shl(9)).or(c.shl(18))
-//    val rr = x1.or(x2.shl(9)).or(x3.shl(18))
-    val graph = CubicGraph()
-
-    val st = System.currentTimeMillis()
-    val bfs = BfsPar()
-    val r = bfs.findDistances(graph, 0)
-
-    println(System.currentTimeMillis() - st)
-    println("RES")
-    println(r[uId(500, 500, 500)])
-
-    var i = 0
-    while (i < r.size) {
-        readln()
-        val ind1 = i.and(511)
-        val ind2 = i.shr(9).and(511)
-        val ind3 = i.shr(18).and(511)
-        println("Node: $ind1 : $ind2 : $ind3 ; Dist: ${r[i]} ; Sum equals: ${ind1 + ind2 + ind3}")
-        i += Random.nextInt(1, 1_000_000)
-    }
-
-//    r.forEachIndexed { index, i ->
-//        if(index % Random.nextInt(1, 1000))
-//        readln()
-
-//        val ind1 = index.and(511)
-//        val ind2 = index.shr(9).and(511)
-//        val ind3 = index.shr(18).and(511)
-//        println("Node: $ind1 : $ind2 : $ind3 ; Dist: $i ")
-//    }
-
-//    val a = (r!! % CUBIC_MAX_SIZE)
-//    val b = (r / CUBIC_MAX_SIZE) % CUBIC_MAX_SIZE
-//    val c = (r / (CUBIC_MAX_SIZE_DOUBLE))
-//    println("$a : $b : $c")
-}
-
 
 fun compare(times: Int) {
     val algos = listOf(
